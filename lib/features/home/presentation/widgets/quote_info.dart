@@ -16,7 +16,7 @@ class QuoteInfo extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
+        SelectableText(
           quoteStr,
           style: TextStyles.title.copyWith(
             color: ThemeColors.mainTextColor,

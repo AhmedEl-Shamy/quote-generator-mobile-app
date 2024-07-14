@@ -29,7 +29,6 @@ class CustomButton extends StatelessWidget {
     return FilledButton(
       onPressed: onPressed,
       style: FilledButton.styleFrom(
-        padding: EdgeInsets.zero,
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
             borderRadius: borderRadius, side: BorderSide.none),

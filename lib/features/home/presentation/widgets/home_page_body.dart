@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quote_generator_mobile_app/core/utlis/constants.dart';
 
+import 'go_to_favorites_button.dart';
 import 'home_quote_actions.dart';
 import 'quote_widget.dart';
 
@@ -15,6 +16,10 @@ class HomePageBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          GoToFavoritesButton(),
+          SizedBox(
+            height: 10,
+          ),
           QuoteWidet(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(Constants.mainRadius),
@@ -29,4 +34,3 @@ class HomePageBody extends StatelessWidget {
     );
   }
 }
-

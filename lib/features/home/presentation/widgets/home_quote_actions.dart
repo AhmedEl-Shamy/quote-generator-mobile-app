@@ -11,34 +11,42 @@ class HomeQuoteActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CustomButton(
-          width: 220,
-          borderRadius: const BorderRadius.only(
-            bottomLeft: Radius.circular(Constants.mainRadius),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double widthUnit = (constraints.maxWidth - 10)/3;
+        return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          CustomButton(
+            width: widthUnit * 2,
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(Constants.mainRadius),
+            ),
+            isFilled: true,
+            onPressed: () {},
+            child: const FittedBox(
+              fit: BoxFit.scaleDown,
+              child: Text(
+                'Generate Another Quote',
+                style: TextStyles.small,
+              ),
+            ),
           ),
-          isFilled: true,
-          onPressed: () {},
-          child: const Text(
-            'Generate Another Quote',
-            style: TextStyles.small,
+          CustomButton(
+            width: widthUnit,
+            borderRadius: const BorderRadius.only(
+              bottomRight: Radius.circular(Constants.mainRadius),
+            ),
+            isFilled: false,
+            onPressed: () {},
+            child: const Icon(
+              Icons.favorite,
+              size: 35,
+            ),
           ),
-        ),
-        CustomButton(
-          width: 100,
-          borderRadius: const BorderRadius.only(
-            bottomRight: Radius.circular(Constants.mainRadius),
-          ),
-          isFilled: false,
-          onPressed: () {},
-          child: const Icon(
-            Icons.favorite,
-            size: 35,
-          ),
-        ),
-      ],
+        ],
+      );
+      },
     );
   }
 }
