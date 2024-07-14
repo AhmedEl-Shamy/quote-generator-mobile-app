@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
 import 'package:quote_generator_mobile_app/features/favorites/presentation/pages/favorites_page.dart';
 
-
 void main(List<String> args) {
   runApp(const QuoteGeneratorApp());
 }

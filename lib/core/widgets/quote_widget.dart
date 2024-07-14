@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
 import 'package:quote_generator_mobile_app/core/widgets/quote_info.dart';
 
-
 class QuoteWidet extends StatelessWidget {
   const QuoteWidet({
     super.key,

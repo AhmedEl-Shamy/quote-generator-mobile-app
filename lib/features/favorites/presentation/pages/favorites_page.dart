@@ -15,5 +15,3 @@ class FavoritesPage extends StatelessWidget {
     );
   }
 }
-
-
