@@ -3,7 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 abstract class CacheService {
   Future<void> write(String quoteId);
   Future<void> delete(String quoteId);
-  Future<List<String>> readAll();
+  List<String> readAll();
 }
 
 class CacheServiceImpl extends CacheService {
@@ -15,7 +15,7 @@ class CacheServiceImpl extends CacheService {
   }
   
   @override
-  Future<List<String>> readAll() async {
+  List<String> readAll() {
     Box<String> box = Hive.box<String>(quotesBoxName);
     List<String> data = box.values.toList();
     return data;
