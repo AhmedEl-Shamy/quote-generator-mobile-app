@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/utlis/colors.dart';
-import '../../../../core/utlis/text_styles.dart';
+import '../utlis/colors.dart';
+import '../utlis/text_styles.dart';
 
 class QuoteInfo extends StatelessWidget {
   const QuoteInfo({

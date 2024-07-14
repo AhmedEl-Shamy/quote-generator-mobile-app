@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
+import 'package:quote_generator_mobile_app/features/favorites/presentation/pages/favorites_page.dart';
 
-import 'features/home/presentation/pages/home_page.dart';
 
 void main(List<String> args) {
   runApp(const QuoteGeneratorApp());
@@ -19,7 +19,7 @@ class QuoteGeneratorApp extends StatelessWidget {
           seedColor: ThemeColors.secondGradientColor,
         ),
       ),
-      home: const HomePage(),
+      home: const FavoritesPage(),
     );
   }
 }

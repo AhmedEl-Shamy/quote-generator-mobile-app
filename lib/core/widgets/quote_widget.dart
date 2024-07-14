@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
-import 'package:quote_generator_mobile_app/features/home/presentation/widgets/quote_info.dart';
+import 'package:quote_generator_mobile_app/core/widgets/quote_info.dart';
 
 
 class QuoteWidet extends StatelessWidget {

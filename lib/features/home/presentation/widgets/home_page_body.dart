@@ -3,7 +3,7 @@ import 'package:quote_generator_mobile_app/core/utlis/constants.dart';
 
 import 'go_to_favorites_button.dart';
 import 'home_quote_actions.dart';
-import 'quote_widget.dart';
+import '../../../../core/widgets/quote_widget.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});
