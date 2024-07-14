@@ -22,4 +22,10 @@ class HomeRepoImpl extends HomeRepo {
       );
     }
   }
+  
+  @override
+  Future<Either<Failure, void>> storeQuote(QuoteEntity qoute) {
+    // TODO: implement storeQuote
+    throw UnimplementedError();
+  }
 }
