@@ -9,7 +9,7 @@ abstract class CacheService {
 class CacheServiceImpl extends CacheService {
   static const quotesBoxName = 'quotes';
 
-  static void initHive() async {
+  static Future<void> initHive() async {
     await Hive.initFlutter();
     await Hive.openBox<String>(quotesBoxName);
   }
