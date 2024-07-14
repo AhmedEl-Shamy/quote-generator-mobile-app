@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
 
 import 'features/home/presentation/pages/home_page.dart';
 
@@ -11,11 +12,14 @@ class QuoteGeneratorApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Quote Generator',
-
-      home: HomePage(),
+      theme: ThemeData.light().copyWith(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: ThemeColors.secondGradientColor,
+        ),
+      ),
+      home: const HomePage(),
     );
   }
 }
-
