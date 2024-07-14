@@ -18,7 +18,7 @@ class CustomNavigatorButton extends StatelessWidget {
       height: 60,
       child: FilledButton(
         style: FilledButton.styleFrom(
-          backgroundColor: ThemeColors.secondNavigatorBtnColor.withOpacity(0.7),
+          backgroundColor: ThemeColors.whiteColor.withOpacity(0.7),
           foregroundColor: ThemeColors.mainTextColor,
           shape: RoundedRectangleBorder(
             borderRadius: borderRadius,

@@ -35,7 +35,7 @@ class GoToFavoritesButton extends StatelessWidget {
             alignment: Alignment.topRight,
             child: CircleAvatar(
               backgroundColor: ThemeColors.mainTextColor,
-              foregroundColor: ThemeColors.secondNavigatorBtnColor,
+              foregroundColor: ThemeColors.whiteColor,
               radius: 16,
               child: FittedBox(
                 fit: BoxFit.scaleDown,
