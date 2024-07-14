@@ -9,6 +9,8 @@ sealed class RandomQuoteState extends Equatable {
 
 final class RandomQuoteInitial extends RandomQuoteState {}
 final class RandomQuoteLoading extends RandomQuoteState {}
+final class CacheQuoteLoading extends RandomQuoteState {}
+final class CacheQuoteSuccess extends RandomQuoteState {}
 final class RandomQuoteSuccess extends RandomQuoteState {
   final QuoteEntity quote;
 

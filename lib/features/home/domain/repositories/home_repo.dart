@@ -4,5 +4,5 @@ import 'package:quote_generator_mobile_app/core/utlis/failure.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, QuoteEntity>> getRandomQuote();
-  Future<Either<Failure, void>> storeQuote(QuoteEntity qoute);
+  Future<Either<Failure, bool>> storeQuote(String qouteId);
 }

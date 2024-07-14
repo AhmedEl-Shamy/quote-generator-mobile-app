@@ -31,7 +31,12 @@ class RandomQuoteCubit extends Cubit<RandomQuoteState> {
     );
   }
 
-  Future<void> storeQuote (QuoteEntity quote) async {
-    await _storeQuoteUseCase.call(quote);
+  Future<void> storeQuote(String quoteId) async {
+    emit(CacheQuoteLoading());
+    Either<Failure, bool> data = await _storeQuoteUseCase.call(quoteId);
+    data.fold(
+      (failure) => emit(RandomQuoteFailure(failure: failure)),
+      (data) => emit(CacheQuoteSuccess()),
+    );
   }
 }
