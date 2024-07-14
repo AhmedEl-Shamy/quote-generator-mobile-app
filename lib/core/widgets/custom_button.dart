@@ -29,6 +29,7 @@ class CustomButton extends StatelessWidget {
     return FilledButton(
       onPressed: onPressed,
       style: FilledButton.styleFrom(
+        padding: EdgeInsets.zero,
         foregroundColor: Colors.white,
         shape: RoundedRectangleBorder(
             borderRadius: borderRadius, side: BorderSide.none),
@@ -44,7 +45,11 @@ class CustomButton extends StatelessWidget {
         foregroundColor: ThemeColors.secondGradientColor,
         shape: RoundedRectangleBorder(
           borderRadius: borderRadius,
-          side: BorderSide.none,
+        ),
+        side: const BorderSide(
+          color: ThemeColors.secondGradientColor,
+          width: 2,
+          style: BorderStyle.solid,
         ),
       ),
       child: child,
