@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
 import 'package:quote_generator_mobile_app/core/utlis/constants.dart';
 import 'package:quote_generator_mobile_app/core/utlis/text_styles.dart';
+import 'package:quote_generator_mobile_app/features/favorites/presentation/controllers/favorites_cubit/favorites_cubit.dart';
 
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
@@ -30,6 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         maxLines: null,
         minLines: null,
         onChanged: (value) => setState(() {}),
+        onSubmitted: (value) => context.read<FavoritesCubit>().search(value),
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
           hintText: 'Type Something Here To Search..',

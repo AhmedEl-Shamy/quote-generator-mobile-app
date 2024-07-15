@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quote_generator_mobile_app/core/entities/quote_entity.dart';
 import 'package:quote_generator_mobile_app/core/utlis/colors.dart';
 import 'package:quote_generator_mobile_app/core/widgets/quote_info.dart';
 
@@ -6,13 +7,11 @@ class QuoteWidet extends StatelessWidget {
   const QuoteWidet({
     super.key,
     required this.borderRadius,
-    required this.quoteStr,
-    required this.quoteAuth,
+    required this.qoute,
     required this.quoteActions,
   });
   final BorderRadius borderRadius;
-  final String quoteStr;
-  final String quoteAuth;
+  final QuoteEntity qoute;
   final Widget quoteActions;
   @override
   Widget build(BuildContext context) {
@@ -30,8 +29,7 @@ class QuoteWidet extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           QuoteInfo(
-            quoteStr: quoteStr,
-            quoteAuth: quoteAuth,
+            quote: qoute,
           ),
           const SizedBox(
             height: 20,

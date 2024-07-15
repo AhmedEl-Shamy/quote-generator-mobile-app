@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:quote_generator_mobile_app/config/app_router.dart';
+import 'package:quote_generator_mobile_app/features/favorites/presentation/controllers/favorites_cubit/favorites_cubit.dart';
 
 import '../../../../core/utlis/colors.dart';
 import '../../../../core/utlis/constants.dart';
@@ -19,19 +23,24 @@ class GoToFavoritesButton extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: CustomNavigatorButton(
-              onPressed: () {},
+              onPressed: () {
+                GoRouter.of(context).push(AppRouter.favoritesRoute);
+              },
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(
                   Constants.mainRadius,
                 ),
               ),
-              child: const Text(
-                'Click Here To View Favorite Quotes',
-                style: TextStyles.title,
+              child: const FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  'Click Here To View Favorite Quotes',
+                  style: TextStyles.title,
+                ),
               ),
             ),
           ),
-          const Align(
+          Align(
             alignment: Alignment.topRight,
             child: CircleAvatar(
               backgroundColor: ThemeColors.mainTextColor,
@@ -40,7 +49,7 @@ class GoToFavoritesButton extends StatelessWidget {
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
-                  '2',
+                  context.read<FavoritesCubit>().quotes.length.toString(),
                   style: TextStyles.normal,
                 ),
               ),

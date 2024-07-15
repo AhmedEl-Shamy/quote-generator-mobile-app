@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quote_generator_mobile_app/core/entities/quote_entity.dart';
+import 'package:quote_generator_mobile_app/features/favorites/presentation/controllers/favorites_cubit/favorites_cubit.dart';
 
 import '../../../../core/utlis/constants.dart';
 import '../../../../core/utlis/text_styles.dart';
@@ -6,9 +9,9 @@ import '../../../../core/widgets/custom_button.dart';
 
 class ListViewItemActions extends StatelessWidget {
   const ListViewItemActions({
-    super.key,
+    super.key, required this.quote,
   });
-
+  final QuoteEntity quote;
   @override
   Widget build(BuildContext context) {
     return CustomButton(
@@ -19,7 +22,9 @@ class ListViewItemActions extends StatelessWidget {
         ),
       ),
       isFilled: false,
-      onPressed: () {},
+      onPressed: () {
+        context.read<FavoritesCubit>().removeQuote(quote.quoteId);
+      },
       child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quote_generator_mobile_app/core/entities/quote_entity.dart';
+import 'package:quote_generator_mobile_app/features/home/presentation/controllers/random_quote_cubit.dart/random_quote_cubit.dart';
 
 import '../../../../core/utlis/constants.dart';
 import '../../../../core/utlis/text_styles.dart';
@@ -7,8 +10,10 @@ import '../../../../core/widgets/custom_button.dart';
 class HomeQuoteActions extends StatelessWidget {
   const HomeQuoteActions({
     super.key,
+    required this.quote,
   });
-
+  
+  final QuoteEntity quote;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -23,7 +28,9 @@ class HomeQuoteActions extends StatelessWidget {
                 bottomLeft: Radius.circular(Constants.mainRadius),
               ),
               isFilled: true,
-              onPressed: () {},
+              onPressed: () {
+                context.read<RandomQuoteCubit>().getRandomQuote();
+              },
               child: const FittedBox(
                 fit: BoxFit.scaleDown,
                 child: Text(
@@ -38,7 +45,9 @@ class HomeQuoteActions extends StatelessWidget {
                 bottomRight: Radius.circular(Constants.mainRadius),
               ),
               isFilled: false,
-              onPressed: () {},
+              onPressed: () {
+                context.read<RandomQuoteCubit>().storeQuote(quote.quoteId);
+              },
               child: const Icon(
                 Icons.favorite,
                 size: 35,

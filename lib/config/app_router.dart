@@ -3,7 +3,7 @@ import 'package:quote_generator_mobile_app/features/favorites/presentation/pages
 import 'package:quote_generator_mobile_app/features/home/presentation/pages/home_page.dart';
 
 abstract class AppRouter {
-  static const String homeRoute = '/home';
+  static const String homeRoute = '/';
   static const String favoritesRoute = '/favorites';
 
   static final GoRouter router = GoRouter(

@@ -37,4 +37,21 @@ class FavoritesCubit extends Cubit<FavoritesState> {
     );
     emit(FavoritesSuccess());
   }
+
+  void search(String str) {
+    if(quotes.isEmpty){
+      return;
+    }
+    List<QuoteEntity> filteredQuotes =  quotes.where(
+      (element) {
+        if (element.quoteContent.contains(str)) {
+          return true;
+        }else if (element.quoteAuthor.contains(str)) {
+          return true;
+        }
+        return false;
+      },
+    ).toList();
+    emit(FavoritesSearch(qoutes: filteredQuotes));
+  }
 }

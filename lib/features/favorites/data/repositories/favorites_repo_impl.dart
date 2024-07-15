@@ -19,6 +19,9 @@ class FavoritesRepoImpl extends FavoritesRepo {
   @override
   Future<Either<Failure, List<QuoteEntity>>> getAllFavorites() async {
     List<String> quotesIds = _favoritesLocalDataSource.getAllFavorites();
+    if (quotesIds.isEmpty) {
+      return right(<QuoteEntity>[]);
+    }
     try {
       List<QuoteEntity> quotes =
           await _favoritesRemoteDataSource.getAllFavorites(quotesIds);

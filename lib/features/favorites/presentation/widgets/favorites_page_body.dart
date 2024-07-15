@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quote_generator_mobile_app/features/favorites/presentation/widgets/custom_text_field.dart';
 
 import '../../../../core/utlis/constants.dart';
@@ -16,7 +17,9 @@ class FavoritesPageBody extends StatelessWidget {
       child: Column(
         children: [
           CustomNavigatorButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).pop();
+            },
             borderRadius: BorderRadius.circular(
               Constants.mainRadius,
             ),

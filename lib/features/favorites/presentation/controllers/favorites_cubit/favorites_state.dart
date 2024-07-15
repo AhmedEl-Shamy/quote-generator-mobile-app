@@ -15,3 +15,9 @@ final class FavoritesFailure extends FavoritesState {
 }
 
 final class FavoritesSuccess extends FavoritesState {}
+final class FavoritesSearch extends FavoritesState {
+  final List<QuoteEntity> qoutes;
+
+  FavoritesSearch({required this.qoutes});
+
+}

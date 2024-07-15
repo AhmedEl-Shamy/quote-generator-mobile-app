@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quote_generator_mobile_app/core/utlis/constants.dart';
 
 import 'go_to_favorites_button.dart';
-import 'home_quote_actions.dart';
-import '../../../../core/widgets/quote_widget.dart';
+import 'quote_widget_bloc_consumer.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});
@@ -20,17 +18,13 @@ class HomePageBody extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          QuoteWidet(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(Constants.mainRadius),
-            ),
-            quoteStr:
-                '“All I required to be happy was friendship and people I could admire.”',
-            quoteAuth: 'Christian Dior',
-            quoteActions: HomeQuoteActions(),
-          ),
+          QuoteWidgetBlocConsumer()
         ],
       ),
     );
   }
+
+  
 }
+
+
