@@ -29,7 +29,7 @@ class QuoteModel extends QuoteEntity {
         id: json['_id'] as String?,
         author: json['author'] as String?,
         content: json['content'] as String?,
-        tags: json['tags'] as List<String>?,
+        tags: (json['tags'] as List<dynamic>?)?.cast<String>(),
         authorSlug: json['authorSlug'] as String?,
         length: json['length'] as int?,
         dateAdded: json['dateAdded'] as String?,

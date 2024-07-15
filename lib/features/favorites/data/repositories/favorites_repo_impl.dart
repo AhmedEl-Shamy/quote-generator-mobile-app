@@ -35,4 +35,14 @@ class FavoritesRepoImpl extends FavoritesRepo {
   Future<void> removeQuote(String quoteId) {
     return _favoritesLocalDataSource.removeQuote(quoteId);
   }
+
+  @override
+  Future<Either<Failure, bool>> storeQuote(String qouteId) async {
+    try {
+      await _favoritesLocalDataSource.storeQuoteId(qouteId);
+      return right(true);
+    } on Exception catch (_){
+      return left(Failure(msg: 'Unexpected error!'));
+    }
+  }
 }

@@ -17,10 +17,6 @@ class QuoteWidgetBlocConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RandomQuoteCubit, RandomQuoteState>(
       listener: _listener,
-      buildWhen: (previous, current) =>
-          !(current is CacheQuoteLoading && current is CacheQuoteSuccess),
-      listenWhen: (previous, current) =>
-          !(current is CacheQuoteLoading && current is CacheQuoteSuccess),
       builder: (context, state) {
         if (state is RandomQuoteSuccess) {
           return QuoteWidet(
@@ -48,6 +44,6 @@ class QuoteWidgetBlocConsumer extends StatelessWidget {
   void _listener(BuildContext context, RandomQuoteState state) {
     if (state is RandomQuoteFailure) {
       showErrorMsg(context, state.failure);
-    }
+    } 
   }
 }

@@ -42,17 +42,23 @@ class GoToFavoritesButton extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: CircleAvatar(
-              backgroundColor: ThemeColors.mainTextColor,
-              foregroundColor: ThemeColors.whiteColor,
-              radius: 16,
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  context.read<FavoritesCubit>().quotes.length.toString(),
-                  style: TextStyles.normal,
-                ),
-              ),
+            child: BlocBuilder<FavoritesCubit, FavoritesState>(
+              buildWhen: (previous, current) =>
+                  current is CacheQuoteSuccess || current is RemoveQuoteSuccess,
+              builder: (context, state) {
+                return CircleAvatar(
+                  backgroundColor: ThemeColors.mainTextColor,
+                  foregroundColor: ThemeColors.whiteColor,
+                  radius: 16,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      context.read<FavoritesCubit>().quotes.length.toString(),
+                      style: TextStyles.normal,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],

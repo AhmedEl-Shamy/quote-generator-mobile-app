@@ -10,11 +10,12 @@ abstract class HomeRemoteDataSource {
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   final ApiService _apiService;
 
-  HomeRemoteDataSourceImpl({required ApiService apiService}) : _apiService = apiService;
+  HomeRemoteDataSourceImpl({required ApiService apiService})
+      : _apiService = apiService;
   @override
   Future<QuoteEntity> getRandomQuote() async {
     const String endPoint = '/random';
-    var data = await _apiService.get(endPoint);
+    Map<String, dynamic> data = await _apiService.get(endPoint);
     return QuoteModel.fromJson(data);
   }
 }

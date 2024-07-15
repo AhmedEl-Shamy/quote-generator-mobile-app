@@ -3,6 +3,7 @@ import 'package:quote_generator_mobile_app/core/services/cache_service.dart';
 abstract class FavoritesLocalDataSource {
   Future<void> removeQuote(String quoteId);
   List<String> getAllFavorites();
+  Future<void> storeQuoteId(String quoteId);
 }
 
 class FavoritesLocalDataSourceImpl extends FavoritesLocalDataSource {
@@ -20,5 +21,10 @@ class FavoritesLocalDataSourceImpl extends FavoritesLocalDataSource {
   @override
   Future<void> removeQuote(String quoteId) async {
     await _cacheService.delete(quoteId);
+  }
+
+  @override
+  Future<void> storeQuoteId(String quoteId) {
+    return _cacheService.write(quoteId);
   }
 }

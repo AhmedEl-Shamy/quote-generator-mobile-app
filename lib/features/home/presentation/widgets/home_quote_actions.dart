@@ -6,13 +6,14 @@ import 'package:quote_generator_mobile_app/features/home/presentation/controller
 import '../../../../core/utlis/constants.dart';
 import '../../../../core/utlis/text_styles.dart';
 import '../../../../core/widgets/custom_button.dart';
+import 'store_quote_button_bloc_listener.dart';
 
 class HomeQuoteActions extends StatelessWidget {
   const HomeQuoteActions({
     super.key,
     required this.quote,
   });
-  
+
   final QuoteEntity quote;
   @override
   Widget build(BuildContext context) {
@@ -39,19 +40,9 @@ class HomeQuoteActions extends StatelessWidget {
                 ),
               ),
             ),
-            CustomButton(
-              width: widthUnit,
-              borderRadius: const BorderRadius.only(
-                bottomRight: Radius.circular(Constants.mainRadius),
-              ),
-              isFilled: false,
-              onPressed: () {
-                context.read<RandomQuoteCubit>().storeQuote(quote.quoteId);
-              },
-              child: const Icon(
-                Icons.favorite,
-                size: 35,
-              ),
+            StoreQuoteButtonBlocListener(
+              quote: quote,
+              widthUnit: widthUnit,
             ),
           ],
         );

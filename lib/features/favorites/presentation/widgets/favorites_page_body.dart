@@ -5,7 +5,7 @@ import 'package:quote_generator_mobile_app/features/favorites/presentation/widge
 import '../../../../core/utlis/constants.dart';
 import '../../../../core/utlis/text_styles.dart';
 import '../../../../core/widgets/custom_navigator_button.dart';
-import 'quote_list_view.dart';
+import 'quote_list_view_bloc_consumer.dart';
 
 class FavoritesPageBody extends StatelessWidget {
   FavoritesPageBody({super.key});
@@ -43,9 +43,7 @@ class FavoritesPageBody extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Expanded(
-            child: QuotesListView(),
-          ),
+          const QuotesListViewBlocConsumer(),
         ],
       ),
     );

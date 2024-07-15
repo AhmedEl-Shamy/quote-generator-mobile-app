@@ -15,6 +15,9 @@ final class FavoritesFailure extends FavoritesState {
 }
 
 final class FavoritesSuccess extends FavoritesState {}
+final class RemoveQuoteSuccess extends FavoritesState {}
+final class CacheQuoteSuccess extends FavoritesState {}
+
 final class FavoritesSearch extends FavoritesState {
   final List<QuoteEntity> qoutes;
 

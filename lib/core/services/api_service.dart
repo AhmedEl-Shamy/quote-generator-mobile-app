@@ -9,6 +9,7 @@ class ApiServiceImpl<T> extends ApiService{
   static const String baseUrl = 'https://api.quotable.io';
 
   ApiServiceImpl({required Dio dio}) : _dio = dio;
+  
   @override
   Future<Map<String, dynamic>> get(String endPoint) async {
     Response response = await _dio.get(baseUrl+endPoint);

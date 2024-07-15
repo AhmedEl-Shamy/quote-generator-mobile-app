@@ -9,8 +9,8 @@ import 'package:quote_generator_mobile_app/features/home/presentation/controller
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  setupLocator();
   await CacheServiceImpl.initHive();
+  setupLocator();
   runApp(const QuoteGeneratorApp());
 }
 
