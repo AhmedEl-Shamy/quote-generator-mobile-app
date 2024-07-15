@@ -16,12 +16,12 @@ class QuoteInfo extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SelectableText(
-          quote.quoteContent,
+          '“${quote.quoteContent}”',
           style: TextStyles.title.copyWith(
             color: ThemeColors.mainTextColor,
           ),
         ),
-        Text(
+        SelectableText(
           quote.quoteAuthor,
           textAlign: TextAlign.right,
           style: TextStyles.normal.copyWith(

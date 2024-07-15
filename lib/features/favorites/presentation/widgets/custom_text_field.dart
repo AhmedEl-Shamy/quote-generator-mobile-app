@@ -31,7 +31,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
         expands: true,
         maxLines: null,
         minLines: null,
-        onChanged: (value) => setState(() {}),
+        onChanged: (value) => setState(() {
+          context.read<FavoritesCubit>().search(value);
+        }),
         onSubmitted: (value) => context.read<FavoritesCubit>().search(value),
         textAlignVertical: TextAlignVertical.center,
         decoration: InputDecoration(
