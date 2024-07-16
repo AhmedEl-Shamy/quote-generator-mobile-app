@@ -23,12 +23,12 @@ class QuotesListViewBlocConsumer extends StatelessWidget {
           return QuoteListView(
             quotes: context.read<FavoritesCubit>().quotes,
           );
-        } else if (state is FavoritesSearch) {
-          return QuoteListView(quotes: state.qoutes);
         } else if (state is FavoritesFailure) {
           return TryAgainButton(
-            onPressed: () => context.read<FavoritesCubit>().getAllFavorites,
+            onPressed: () => context.read<FavoritesCubit>().getAllFavorites(),
           );
+        } else if (state is FavoritesSearch) {
+          return QuoteListView(quotes: state.qoutes);
         } else {
           return const CustomLoadingIndicator();
         }

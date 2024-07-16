@@ -44,7 +44,9 @@ class GoToFavoritesButton extends StatelessWidget {
             alignment: Alignment.topRight,
             child: BlocBuilder<FavoritesCubit, FavoritesState>(
               buildWhen: (previous, current) =>
-                  current is CacheQuoteSuccess || current is RemoveQuoteSuccess,
+                  current is CacheQuoteSuccess ||
+                  current is RemoveQuoteSuccess ||
+                  current is FavoritesSuccess,
               builder: (context, state) {
                 return CircleAvatar(
                   backgroundColor: ThemeColors.mainTextColor,

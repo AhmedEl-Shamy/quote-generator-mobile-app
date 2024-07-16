@@ -23,6 +23,7 @@ class FavoritesCubit extends Cubit<FavoritesState> {
         super(FavoritesInitial());
 
   Future<void> getAllFavorites() async {
+    emit(FavoritesLoading());
     Either<Failure, List<QuoteEntity>> data =
         await _getAllFavoritesUseCase.call();
     data.fold(
