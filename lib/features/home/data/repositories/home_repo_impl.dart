@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:quote_generator_mobile_app/core/entities/quote_entity.dart';
+import 'package:quote_generator_mobile_app/core/utlis/exceptions.dart';
 import 'package:quote_generator_mobile_app/core/utlis/failure.dart';
 import 'package:quote_generator_mobile_app/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:quote_generator_mobile_app/features/home/domain/repositories/home_repo.dart';
@@ -17,9 +17,9 @@ class HomeRepoImpl extends HomeRepo {
     try {
       QuoteEntity quote = await _remoteDataSource.getRandomQuote();
       return right(quote);
-    } on DioException catch (e) {
+    } on InternetException catch (e) {
       return left(
-        ServerFailure.fromDioException(e),
+        ServerFailure.fromResponse(e.response),
       );
     }
   }

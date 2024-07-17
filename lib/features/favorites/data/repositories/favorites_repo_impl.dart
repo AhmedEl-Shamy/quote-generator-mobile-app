@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:quote_generator_mobile_app/core/entities/quote_entity.dart';
+import 'package:quote_generator_mobile_app/core/utlis/exceptions.dart';
 import 'package:quote_generator_mobile_app/core/utlis/failure.dart';
 import 'package:quote_generator_mobile_app/features/favorites/data/data_sources/favorites_local_data_source.dart';
 import 'package:quote_generator_mobile_app/features/favorites/data/data_sources/favorites_remote_data_source.dart';
@@ -26,8 +26,8 @@ class FavoritesRepoImpl extends FavoritesRepo {
       List<QuoteEntity> quotes =
           await _favoritesRemoteDataSource.getAllFavorites(quotesIds);
       return right(quotes);
-    } on DioException catch (e) {
-      return left(ServerFailure.fromDioException(e));
+    } on InternetException catch (e) {
+      return left(ServerFailure.fromResponse(e.response));
     }
   }
 

@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 import 'package:quote_generator_mobile_app/core/services/api_service.dart';
 import 'package:quote_generator_mobile_app/core/services/cache_service.dart';
@@ -21,8 +21,9 @@ final GetIt sl = GetIt.I;
 void setupLocator() {
   // =================== Services =================== //
 
-  sl.registerSingleton<Dio>(Dio());
-  sl.registerSingleton<ApiService>(ApiServiceImpl(dio: sl.get<Dio>()));
+  // sl.registerSingleton<Dio>(Dio());
+  sl.registerSingleton<http.Client>(http.Client());
+  sl.registerSingleton<ApiService>(ApiServiceImpl(client: sl.get<http.Client>()));
   sl.registerSingleton<CacheService>(CacheServiceImpl());
 
   // =================== Data Sources =================== //
